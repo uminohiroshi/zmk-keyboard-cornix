@@ -25,7 +25,7 @@ manifest:
     #  clone-depth: 1
     - name: zmk-dongle-display
       remote: hitsmaxft
-      revision: zephyr4
+      revision: main
       clone-depth: 1
     #- name: zmk-dongle-screen
     #  remote: janpfischer
