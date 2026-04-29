@@ -189,10 +189,10 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&lt 4 TAB   &kp Q         &kp W         &kp E          &kp R                &kp T                                &kp Y        &kp U                &kp I          &kp O         &kp P             &lt 4 LEFT_BRACKET
-&kp LCTRL   &hm_l LWIN A  &hm_l LALT S  &hm_l LCTRL D  &hm_shift_l LSHFT F  &kp G                                &kp H        &hm_shift_r RSHFT J  &hm_r RCTRL K  &hm_r RALT L  &hm_r RMETA SEMI  &mt RCTRL SQT
-&kp LSHIFT  &kp Z         &kp X         &kp C          &kp V                &kp B        &kp C_MUTE  &kp K_MENU  &kp N        &kp M                &kp COMMA      &kp DOT       &kp FSLH          &mt RSHFT INTERNATIONAL_1
-&kp LCTRL   &kp LEFT_ALT  &kp LWIN      &lt 5 F13      &lt 3 BACKSPACE      &lt 2 SPACE                          &lt 2 SPACE  &lt 3 ENTER          &lt 6 F14      &kp RMETA     &kp RIGHT_ALT     &kp RCTRL
+&lt 4 TAB   &kp Q         &kp W         &kp E          &kp R                &kp T                                        &kp Y        &kp U                &kp I          &kp O         &kp P             &lt 4 LEFT_BRACKET
+&kp LCTRL   &hm_l LWIN A  &hm_l LALT S  &hm_l LCTRL D  &hm_shift_l LSHFT F  &kp G                                        &kp H        &hm_shift_r RSHFT J  &hm_r RCTRL K  &hm_r RALT L  &hm_r RMETA SEMI  &mt RCTRL SQT
+&kp LSHIFT  &kp Z         &kp X         &kp C          &kp V                &kp B        &kp C_MUTE  &kp K_CONTEXT_MENU  &kp N        &kp M                &kp COMMA      &kp DOT       &kp FSLH          &mt RSHFT INTERNATIONAL_1
+&kp LCTRL   &kp LEFT_ALT  &kp LWIN      &lt 5 F13      &lt 3 BACKSPACE      &lt 2 SPACE                                  &lt 2 SPACE  &lt 3 ENTER          &lt 6 F14      &kp RMETA     &kp RIGHT_ALT     &kp RCTRL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -224,10 +224,10 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&kp LS(INTERNATIONAL_1)  &kp LS(N2)       &kp HOME  &kp UP_ARROW  &kp END      &kp PAGE_UP                    &kp RIGHT_BRACKET  &kp LS(N8)  &kp LS(N9)          &kp BACKSLASH        &kp MINUS       &kp LS(MINUS)
-&trans                   &kp GRAVE        &kp LEFT  &kp DOWN      &kp RIGHT    &kp PAGE_DOWN                  &kp BACKSPACE      &kp ESCAPE  &kp DELETE          &kp INT_MUHENKAN     &kp INT_HENKAN  &mt RCTRL LS(N7)
-&trans                   &kp EXCLAMATION  &kp HASH  &kp DOLLAR    &kp PERCENT  &kp LS(EQUAL)  &trans  &trans  &kp UNDERSCORE     &kp ENTER   &kp LS(LEFT_BRACE)  &kp LS(RIGHT_BRACE)  &kp LS(N6)      &mt RSHFT LS(EQUAL)
-&trans                   &trans           &trans    &trans        &trans       &trans                         &trans             &trans      &trans              &trans               &trans          &trans
+&kp LS(INTERNATIONAL_1)  &kp LS(N2)       &kp HOME  &kp UP_ARROW  &kp END      &kp PAGE_UP                    &kp RIGHT_BRACKET        &kp LS(N8)  &kp LS(N9)          &kp BACKSLASH        &kp MINUS       &kp LS(MINUS)
+&trans                   &kp GRAVE        &kp LEFT  &kp DOWN      &kp RIGHT    &kp PAGE_DOWN                  &kp BACKSPACE            &kp ESCAPE  &kp DELETE          &kp INT_MUHENKAN     &kp INT_HENKAN  &mt RCTRL LS(N7)
+&trans                   &kp EXCLAMATION  &kp HASH  &kp DOLLAR    &kp PERCENT  &kp LS(EQUAL)  &trans  &trans  &kp LS(INTERNATIONAL_1)  &kp ENTER   &kp LS(LEFT_BRACE)  &kp LS(RIGHT_BRACE)  &kp LS(N6)      &mt RSHFT EQUAL
+&trans                   &trans           &trans    &trans        &trans       &trans                         &trans                   &trans      &trans              &trans               &trans          &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -302,10 +302,10 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                  &none        &none  &none   &none  &none  &none
-&none       &none         &none         &none         &none         &none                         &none        &none  &none   &none  &none  &none
-&none       &none         &none         &none         &none         &bootloader   &trans  &trans  &bootloader  &none  &none   &none  &none  &none
-&none       &none         &none         &none         &none         &none                         &none        &none  &kp N7  &none  &none  &none
+&bt BT_CLR      &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4                   &none        &none  &none   &none  &none  &none
+&bt BT_CLR_ALL  &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4                  &none        &none  &none   &none  &none  &none
+&bt BT_NXT      &bt BT_PRV     &none          &none          &none          &bootloader    &trans  &trans  &bootloader  &none  &none   &none  &none  &none
+&none           &none          &none          &none          &none          &none                          &none        &none  &kp N7  &none  &none  &none
             >;
         };
     };
