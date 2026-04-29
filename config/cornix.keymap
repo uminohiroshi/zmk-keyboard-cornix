@@ -224,10 +224,10 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&kp LS(INTERNATIONAL_1)  &kp LS(N2)       &kp HOME  &kp UP_ARROW  &kp END      &kp PAGE_UP                    &kp RIGHT_BRACKET        &kp LS(N8)  &kp LS(N9)          &kp BACKSLASH        &kp MINUS       &kp LS(MINUS)
-&trans                   &kp GRAVE        &kp LEFT  &kp DOWN      &kp RIGHT    &kp PAGE_DOWN                  &kp BACKSPACE            &kp ESCAPE  &kp DELETE          &kp INT_MUHENKAN     &kp INT_HENKAN  &mt RCTRL LS(N7)
-&trans                   &kp EXCLAMATION  &kp HASH  &kp DOLLAR    &kp PERCENT  &kp LS(EQUAL)  &trans  &trans  &kp LS(INTERNATIONAL_1)  &kp ENTER   &kp LS(LEFT_BRACE)  &kp LS(RIGHT_BRACE)  &kp LS(N6)      &mt RSHFT EQUAL
-&trans                   &trans           &trans    &trans        &trans       &trans                         &trans                   &trans      &trans              &trans               &trans          &trans
+&kp LS(INTERNATIONAL_1)  &kp LS(N2)       &kp HOME  &kp UP_ARROW  &kp END      &kp PAGE_UP                    &kp RIGHT_BRACKET        &kp LS(N8)  &kp LS(N9)             &kp BACKSLASH        &kp MINUS       &kp LS(MINUS)
+&trans                   &kp GRAVE        &kp LEFT  &kp DOWN      &kp RIGHT    &kp PAGE_DOWN                  &kp BACKSPACE            &kp ESCAPE  &kp DELETE             &kp INTERNATIONAL_4  &kp INT_HENKAN  &mt RCTRL LS(N7)
+&trans                   &kp EXCLAMATION  &kp HASH  &kp DOLLAR    &kp PERCENT  &kp LS(EQUAL)  &trans  &trans  &kp LS(INTERNATIONAL_1)  &kp ENTER   &kp RS(RIGHT_BRACKET)  &kp RS(BACKSLASH)    &kp LS(N6)      &mt RSHFT EQUAL
+&trans                   &trans           &trans    &trans        &trans       &trans                         &trans                   &trans      &trans                 &trans               &trans          &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
