@@ -191,7 +191,7 @@
             bindings = <
 &lt 4 TAB   &kp Q         &kp W         &kp E          &kp R                &kp T                                &kp Y        &kp U                &kp I          &kp O         &kp P             &lt 4 LEFT_BRACKET
 &kp LCTRL   &hm_l LWIN A  &hm_l LALT S  &hm_l LCTRL D  &hm_shift_l LSHFT F  &kp G                                &kp H        &hm_shift_r RSHFT J  &hm_r RCTRL K  &hm_r RALT L  &hm_r RMETA SEMI  &mt RCTRL SQT
-&kp LSHIFT  &kp Z         &kp X         &kp C          &kp V                &kp B        &kp K_MUTE  &kp C_MENU  &kp N        &kp M                &kp COMMA      &kp DOT       &kp FSLH          &kp INTERNATIONAL_1
+&kp LSHIFT  &kp Z         &kp X         &kp C          &kp V                &kp B        &kp C_MUTE  &kp K_MENU  &kp N        &kp M                &kp COMMA      &kp DOT       &kp FSLH          &mt RSHFT INTERNATIONAL_1
 &kp LCTRL   &kp LEFT_ALT  &kp LWIN      &lt 5 F13      &lt 3 BACKSPACE      &lt 2 SPACE                          &lt 2 SPACE  &lt 3 ENTER          &lt 6 F14      &kp RMETA     &kp RIGHT_ALT     &kp RCTRL
             >;
 
@@ -201,10 +201,10 @@
         default2_layer {
             display-name = "Base";
             bindings = <
-&lt 4 TAB   &kp Q         &kp W         &kp E          &kp R                &kp T                                &kp Y        &kp U                &kp I          &kp O         &kp P             &lt 4 LEFT_BRACKET
-&kp LCTRL   &hm_l LWIN A  &hm_l LALT S  &hm_l LCTRL D  &hm_shift_l LSHFT F  &kp G                                &kp H        &hm_shift_r RSHFT J  &hm_r RCTRL K  &hm_r RALT L  &hm_r RMETA SEMI  &mt RCTRL SQT
-&kp LSHIFT  &kp Z         &kp X         &kp C          &kp V                &kp B        &kp K_MUTE  &kp C_MENU  &kp N        &kp M                &kp COMMA      &kp DOT       &kp FSLH          &kp INTERNATIONAL_1
-&kp LCTRL   &kp LEFT_ALT  &kp LWIN      &lt 5 F13      &lt 3 BACKSPACE      &lt 2 SPACE                          &lt 2 SPACE  &lt 3 ENTER          &lt 6 F14      &kp RMETA     &kp RIGHT_ALT     &kp RCTRL
+&lt 4 TAB   &kp Q         &kp W     &kp E      &kp R            &kp T                        &kp Y        &kp U        &kp I      &kp O      &kp P          &lt 4 LEFT_BRACKET
+&kp LCTRL   &kp A         &kp S     &kp D      &kp F            &kp G                        &kp H        &kp J        &kp K      &kp L      &kp SEMICOLON  &mt RCTRL SQT
+&kp LSHIFT  &kp Z         &kp X     &kp C      &kp V            &kp B        &trans  &trans  &kp N        &kp M        &kp COMMA  &kp DOT    &kp FSLH       &kp INTERNATIONAL_1
+&kp LCTRL   &kp LEFT_ALT  &kp LWIN  &lt 5 F13  &lt 3 BACKSPACE  &lt 2 SPACE                  &lt 2 SPACE  &lt 3 ENTER  &lt 6 F14  &kp RMETA  &kp RIGHT_ALT  &kp RCTRL
             >;
 
             sensor-bindings =
@@ -224,10 +224,10 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&kp PIPE  &kp DOUBLE_QUOTES  &kp HOME  &kp UP_ARROW  &kp END      &kp PAGE_UP                    &kp LEFT_BRACKET  &kp LS(N8)  &kp LS(N9)          &kp RIGHT_BRACKET    &kp MINUS         &kp LS(MINUS)
-&trans    &kp LANGUAGE_1     &kp LEFT  &kp DOWN      &kp RIGHT    &kp PAGE_DOWN                  &kp BACKSPACE     &kp ESCAPE  &kp DELETE          &kp INT_HENKAN       &kp INT_MUHENKAN  &mt RCTRL SINGLE_QUOTE
-&trans    &kp EXCLAMATION    &kp HASH  &kp DOLLAR    &kp PERCENT  &kp LS(GRAVE)  &trans  &trans  &kp UNDERSCORE    &kp ENTER   &kp LS(LEFT_BRACE)  &kp LS(RIGHT_BRACE)  &kp AMPERSAND     &mt (RSHFT) LS(N6)
-&trans    &trans             &trans    &trans        &trans       &trans                         &trans            &trans      &trans              &trans               &trans            &trans
+&kp LS(INTERNATIONAL_1)  &kp LS(N2)       &kp HOME  &kp UP_ARROW  &kp END      &kp PAGE_UP                    &kp RIGHT_BRACKET  &kp LS(N8)  &kp LS(N9)          &kp BACKSLASH        &kp MINUS       &kp LS(MINUS)
+&trans                   &kp GRAVE        &kp LEFT  &kp DOWN      &kp RIGHT    &kp PAGE_DOWN                  &kp BACKSPACE      &kp ESCAPE  &kp DELETE          &kp INT_MUHENKAN     &kp INT_HENKAN  &mt RCTRL LS(N7)
+&trans                   &kp EXCLAMATION  &kp HASH  &kp DOLLAR    &kp PERCENT  &kp LS(EQUAL)  &trans  &trans  &kp UNDERSCORE     &kp ENTER   &kp LS(LEFT_BRACE)  &kp LS(RIGHT_BRACE)  &kp LS(N6)      &mt RSHFT LS(EQUAL)
+&trans                   &trans           &trans    &trans        &trans       &trans                         &trans             &trans      &trans              &trans               &trans          &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -244,10 +244,10 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&kp F12  &kp F1   &kp F2       &kp F3   &kp F4   &kp F5                           &kp F6               &kp F7   &kp F8   &kp F9          &kp F10  &kp F11
-&trans   &kp N1   &kp N2       &kp N3   &kp N4   &kp N5                           &kp N6               &kp N7   &kp N8   &kp N9          &kp N0   &kp RCTRL
-&trans   &kp INS  &kp C_PAUSE  &kp F14  &kp F13  &kp PRINTSCREEN  &trans  &trans  &kp LA(PRINTSCREEN)  &kp F13  &kp F14  &kp SCROLLLOCK  &none    &kp RSHIFT
-&trans   &trans   &trans       &trans   &trans   &trans                           &trans               &trans   &trans   &trans          &trans   &trans
+&kp F12     &kp F1   &kp F2           &kp F3   &kp F4   &kp F5                           &kp F6               &kp F7   &kp F8   &kp F9          &kp F10  &kp F11
+&kp LCTRL   &kp N1   &kp N2           &kp N3   &kp N4   &kp N5                           &kp N6               &kp N7   &kp N8   &kp N9          &kp N0   &kp RCTRL
+&kp LSHIFT  &kp INS  &kp PAUSE_BREAK  &kp F14  &kp F13  &kp PRINTSCREEN  &trans  &trans  &kp LA(PRINTSCREEN)  &kp F13  &kp F14  &kp SCROLLLOCK  &none    &kp RSHIFT
+&trans      &trans   &trans           &trans   &trans   &trans                           &trans               &trans   &trans   &trans          &trans   &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -274,20 +274,20 @@
         Ctrl_layer {
             display-name = "Ctrl";
             bindings = <
-&none         &none  &none  &kp K_PREV  &kp K_NEXT  &none                &none  &none  &none  &none  &none  &none
-&bt BT_SEL 2  &none  &none  &none       &none       &none                &none  &none  &none  &none  &none  &none
-&bt BT_SEL 1  &none  &none  &none       &none       &none  &none  &none  &none  &none  &none  &none  &none  &none
-&bt BT_SEL 0  &none  &none  &none       &none       &none                &none  &none  &none  &none  &none  &none
+&none         &none  &none  &kp K_PREV  &kp K_NEXT  &bt BT_CLR                &none  &none  &none  &none  &none  &none
+&bt BT_SEL 2  &none  &none  &none       &none       &none                     &none  &none  &none  &none  &none  &none
+&bt BT_SEL 1  &none  &none  &none       &none       &none       &none  &none  &none  &none  &none  &none  &none  &none
+&bt BT_SEL 0  &none  &none  &none       &none       &none                     &none  &none  &none  &none  &none  &none
             >;
         };
 
         Navi_layer {
             display-name = "Navi";
             bindings = <
-&mo 7  &none  &none           &mmv MOVE_UP    &none            &none                  &none  &none           &mmv MOVE_UP    &none            &none  &none
-&none  &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none                  &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none  &none
-&none  &none  &none           &none           &none            &none  &trans  &trans  &none  &none           &none           &none            &none  &none
-&none  &none  &none           &none           &none            &mo 7                  &none  &none           &none           &none            &none  &none
+&mo 7  &msc SCRL_UP    &mkp LCLK        &mmv MOVE_UP    &mkp MCLK        &mkp RCLK                  &msc SCRL_UP    &mkp LCLK        &mmv MOVE_UP    &mkp MCLK        &mkp RCLK  &none
+&none  &msc SCRL_DOWN  &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none                      &msc SCRL_DOWN  &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none      &none
+&none  &msc SCRL_LEFT  &msc SCRL_RIGHT  &none           &none            &none      &trans  &trans  &msc SCRL_LEFT  &msc SCRL_RIGHT  &none           &none            &none      &none
+&none  &none           &none            &none           &none            &mo 7                      &none           &none            &none           &none            &none      &none
             >;
         };
 
