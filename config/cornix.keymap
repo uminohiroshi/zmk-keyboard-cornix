@@ -32,9 +32,7 @@
 #define THUMBS LH1 LH0 RH0 RH1
 #define KEYS_T LH1 LH0 RH0 RH1
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 15
-
 #define COMBO_TIMEOUT 20
-
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
@@ -152,19 +150,22 @@
         cb_qw {
             bindings = <&kp ESCAPE>;
             key-positions = <1 2>;
-            timeout-ms = <COMBO_TIMEOUT>;  
+            timeout-ms = <COMBO_TIMEOUT>;
         };
+
         cb_we {
             bindings = <&kp ESC>;
             key-positions = <3 2>;
             timeout-ms = <COMBO_TIMEOUT>;
+
             //layers = <0>;
         };
 
         cb_er {
             bindings = <&kp ENTER>;
             key-positions = <3 4>;
-            timeout-ms = <COMBO_TIMEOUT>;            
+            timeout-ms = <COMBO_TIMEOUT>;
+
             //layers = <0>;
         };
 
@@ -172,6 +173,7 @@
             bindings = <&kp DELETE>;
             key-positions = <4 5>;
             timeout-ms = <COMBO_TIMEOUT>;
+
             //layers = <0>;
         };
 
@@ -184,7 +186,7 @@
         cb_ui {
             bindings = <&kp ESCAPE>;
             key-positions = <7 8>;
-            timeout-ms = <COMBO_TIMEOUT>;            
+            timeout-ms = <COMBO_TIMEOUT>;
         };
 
         cb_io {
@@ -255,10 +257,10 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&kp LS(INTERNATIONAL_1)  &kp LS(N2)       &kp HOME  &kp UP_ARROW  &kp END      &kp PAGE_UP                    &kp RIGHT_BRACKET        &kp LS(N8)  &kp LS(N9)             &kp BACKSLASH        &kp MINUS            &kp LS(MINUS)
-&trans                   &kp GRAVE        &kp LEFT  &kp DOWN      &kp RIGHT    &kp PAGE_DOWN                  &kp BACKSPACE            &kp ESCAPE  &kp DELETE             &kp INTERNATIONAL_4  &kp INTERNATIONAL_5  &mt RCTRL LS(N7)
-&trans                   &kp EXCLAMATION  &kp HASH  &kp DOLLAR    &kp PERCENT  &kp LS(EQUAL)  &trans  &trans  &kp LS(INTERNATIONAL_1)  &kp ENTER   &kp RS(RIGHT_BRACKET)  &kp RS(BACKSLASH)    &kp LS(N6)           &mt RSHFT EQUAL
-&trans                   &trans           &trans    &trans        &trans       &trans                         &trans                   &trans      &trans                 &trans               &trans               &trans
+&kp LS(INT_YEN)  &kp LS(N2)       &kp HOME  &kp UP_ARROW  &kp END      &kp PAGE_UP                    &kp RIGHT_BRACKET        &kp LS(N8)  &kp LS(N9)             &kp BACKSLASH        &kp MINUS            &kp LS(MINUS)
+&trans           &kp GRAVE        &kp LEFT  &kp DOWN      &kp RIGHT    &kp PAGE_DOWN                  &kp BACKSPACE            &kp ESCAPE  &kp DELETE             &kp INTERNATIONAL_4  &kp INTERNATIONAL_5  &mt RCTRL LS(N7)
+&trans           &kp EXCLAMATION  &kp HASH  &kp DOLLAR    &kp PERCENT  &kp LS(EQUAL)  &trans  &trans  &kp LS(INTERNATIONAL_1)  &kp ENTER   &kp RS(RIGHT_BRACKET)  &kp RS(BACKSLASH)    &kp LS(N6)           &mt RSHFT EQUAL
+&trans           &trans           &trans    &trans        &trans       &trans                         &trans                   &trans      &trans                 &trans               &trans               &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -295,20 +297,20 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&none  &none  &none  &none  &none  &sys_reset                  &sys_reset  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none                       &none       &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none       &trans  &trans  &none       &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none                       &none       &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &sys_reset                   &sys_reset   &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &bootloader                  &bootloader  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none        &trans  &trans  &none        &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none                        &none        &none  &none  &none  &none  &none
             >;
         };
 
         Ctrl_layer {
             display-name = "Ctrl";
             bindings = <
-&none         &none  &none  &kp K_PREV  &kp K_NEXT  &bt BT_CLR                &none  &none  &none  &none  &none  &none
-&bt BT_SEL 2  &none  &none  &none       &none       &none                     &none  &none  &none  &none  &none  &none
-&bt BT_SEL 1  &none  &none  &none       &none       &none       &none  &none  &none  &none  &none  &none  &none  &none
-&bt BT_SEL 0  &none  &none  &none       &none       &none                     &none  &none  &none  &none  &none  &none
+&none         &none  &none  &kp K_PREV  &kp K_NEXT  &bt BT_CLR                &none        &none  &none  &none  &none  &none
+&bt BT_SEL 2  &none  &none  &none       &none       &none                     &bootloader  &none  &none  &none  &none  &none
+&bt BT_SEL 1  &none  &none  &none       &none       &none       &none  &none  &none        &none  &none  &none  &none  &none
+&bt BT_SEL 0  &none  &none  &none       &none       &none                     &none        &none  &none  &none  &none  &none
             >;
         };
 
