@@ -146,32 +146,52 @@
     combos {
         compatible = "zmk,combos";
 
-        cb_ltm {
+        cb_we {
             bindings = <&kp ESC>;
-            key-positions = <2 4>;
+            key-positions = <3 2>;
             layers = <0>;
         };
 
-        cb_lm {
-            bindings = <&kp TAB>;
-            key-positions = <14 16>;
+        cb_er {
+            bindings = <&kp ENTER>;
+            key-positions = <3 4>;
             layers = <0>;
         };
 
-        cb_enter {
-            bindings = <&kp RET>;
-            key-positions = <21 19>;
+        cb_rt {
+            bindings = <&kp DELETE>;
+            key-positions = <4 5>;
             layers = <0>;
         };
 
-        layer3 {
-            bindings = <&kp N3>;
-            key-positions = <5 6>;
+        cb_qw {
+            bindings = <&kp ESCAPE>;
+            key-positions = <1 2>;
         };
 
-        layer4 {
-            bindings = <&kp N4>;
-            key-positions = <5 6>;
+        cb_yu {
+            bindings = <&kp K_CONTEXT_MENU>;
+            key-positions = <6 7>;
+        };
+
+        cb_ui {
+            bindings = <&kp ESCAPE>;
+            key-positions = <7 8>;
+        };
+
+        cb_io {
+            bindings = <&kp ESCAPE>;
+            key-positions = <8 9>;
+        };
+
+        cb_op {
+            bindings = <&kp ESCAPE>;
+            key-positions = <9 10>;
+        };
+
+        cb_pat {
+            bindings = <&kp ESCAPE>;
+            key-positions = <10 11>;
         };
     };
 
@@ -306,6 +326,15 @@
 &bt BT_CLR_ALL  &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4                  &none        &none  &none   &none  &none  &none
 &bt BT_NXT      &bt BT_PRV     &none          &none          &none          &bootloader    &trans  &trans  &bootloader  &none  &none   &none  &none  &none
 &none           &none          &none          &none          &none          &none                          &none        &none  &kp N7  &none  &none  &none
+            >;
+        };
+
+        layer_8 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
