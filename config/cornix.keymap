@@ -37,8 +37,8 @@
 #define COMBO_TIMEOUT 25       // combo入力時間
 #define COMBO_PRIOR_IDLE 80    // combo入力前に一旦待つ
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 2400  // default: 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 40    // default: 10
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1800  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 50    // default: 10
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
