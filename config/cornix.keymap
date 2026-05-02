@@ -7,6 +7,9 @@
 #include "zmk-helpers/helper.h"
 #include "includes/cornix54.h"
 
+#include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/mouse.h>
+
 // tap windows for ctl alt and gui
 
 #define HM_TAPPING_TERM 250
@@ -32,7 +35,8 @@
 #define THUMBS LH1 LH0 RH0 RH1
 #define KEYS_T LH1 LH0 RH0 RH1
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 15
-#define COMBO_TIMEOUT 20
+#define COMBO_TIMEOUT 25       // combo入力時間
+#define COMBO_PRIOR_IDLE 80    // combo入力前に一旦待つ
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
@@ -147,16 +151,26 @@
     combos {
         compatible = "zmk,combos";
 
+        /* Left Top Row */
+        cb_tabq {
+            bindings = <&none>;
+            key-positions = <0 1>;
+            timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+        };
+
         cb_qw {
             bindings = <&kp ESCAPE>;
             key-positions = <1 2>;
             timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
         };
 
         cb_we {
             bindings = <&kp ESC>;
             key-positions = <3 2>;
             timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
 
             //layers = <0>;
         };
@@ -165,6 +179,7 @@
             bindings = <&kp ENTER>;
             key-positions = <3 4>;
             timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
 
             //layers = <0>;
         };
@@ -173,39 +188,140 @@
             bindings = <&kp DELETE>;
             key-positions = <4 5>;
             timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
 
             //layers = <0>;
         };
 
+        /* Left Bottom Row */
+        cb_sftz {
+            bindings = <&none>;
+            key-positions = <1 2>;
+            timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+        };
+
+        cb_zx {
+            bindings = <&none>;
+            key-positions = <3 2>;
+            timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+
+            //layers = <0>;
+        };
+
+        cb_xc {
+            bindings = <&none>;
+            key-positions = <3 4>;
+            timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+
+            //layers = <0>;
+        };
+
+        cb_cv {
+            bindings = <&none>;
+            key-positions = <4 5>;
+            timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+
+            //layers = <0>;
+        };
+
+        cb_vb {
+            bindings = <&none>;
+            key-positions = <4 5>;
+            timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+
+            //layers = <0>;
+        };
+
+        /* Right Top Row */
         cb_yu {
             bindings = <&kp K_CONTEXT_MENU>;
             key-positions = <6 7>;
             timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
         };
 
         cb_ui {
             bindings = <&kp ESCAPE>;
             key-positions = <7 8>;
             timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
         };
 
         cb_io {
             bindings = <&kp ESCAPE>;
             key-positions = <8 9>;
             timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
         };
 
         cb_op {
             bindings = <&kp ESCAPE>;
             key-positions = <9 10>;
             timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
         };
 
         cb_pat {
             bindings = <&kp ESCAPE>;
             key-positions = <10 11>;
             timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
         };
+
+        /* Right Bottom Row */
+        cb_nm {
+            bindings = <&none>;
+            key-positions = <6 7>;
+            timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+        };
+
+        cb_mcomma {
+            bindings = <&none>;
+            key-positions = <7 8>;
+            timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+        };
+
+        cb_commaperiod {
+            bindings = <&none>;
+            key-positions = <8 9>;
+            timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+        };
+
+        cb_priodslash {
+            bindings = <&none>;
+            key-positions = <9 10>;
+            timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+        };
+
+        cb_slashbackslash {
+            bindings = <&none>;
+            key-positions = <10 11>;
+            timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+        };
+    };
+
+    /* キーマウス加速 */
+    &mmv {
+        time-to-max-speed-ms = <1000>;  // 最高速に達するまでの時間(ms)
+        acceleration-exponent = <1>;    // 加速カーブの形状(1:線形, 2:二次加速)
+        delay-ms = <0>;                 // 動き始めるまでの遅延(ms)
+    };
+
+    /* キーホイール加速 */
+    &msc {
+        time-to-max-speed-ms = <1000>;  // 最高速に達するまでの時間(ms)
+        acceleration-exponent = <1>;    // 加速カーブの形状(1:線形, 2:二次加速)
+        delay-ms = <0>;                 // 動き始めるまでの遅延(ms)
     };
 
     keymap {
@@ -222,10 +338,10 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&lt 4 TAB   &kp Q         &kp W         &kp E          &kp R                &kp T                                        &kp Y        &kp U                &kp I          &kp O         &kp P             &lt 4 LEFT_BRACKET
-&kp LCTRL   &hm_l LWIN A  &hm_l LALT S  &hm_l LCTRL D  &hm_shift_l LSHFT F  &kp G                                        &kp H        &hm_shift_r RSHFT J  &hm_r RCTRL K  &hm_r RALT L  &hm_r RMETA SEMI  &mt RCTRL SQT
-&kp LSHIFT  &kp Z         &kp X         &kp C          &kp V                &kp B        &kp C_MUTE  &kp K_CONTEXT_MENU  &kp N        &kp M                &kp COMMA      &kp DOT       &kp FSLH          &mt RSHFT INTERNATIONAL_1
-&kp LCTRL   &kp LEFT_ALT  &kp LWIN      &lt 5 F13      &lt 3 BACKSPACE      &lt 2 SPACE                                  &lt 2 SPACE  &lt 3 ENTER          &lt 6 F14      &kp RMETA     &kp RIGHT_ALT     &kp RCTRL
+&lt 4 TAB   &kp Q         &kp W         &kp E          &kp R                &kp T                               &kp Y        &kp U                &kp I          &kp O         &kp P             &lt 4 LEFT_BRACKET
+&kp LCTRL   &hm_l LWIN A  &hm_l LALT S  &hm_l LCTRL D  &hm_shift_l LSHFT F  &kp G                               &kp H        &hm_shift_r RSHFT J  &hm_r RCTRL K  &hm_r RALT L  &hm_r RMETA SEMI  &mt RCTRL SQT
+&kp LSHIFT  &kp Z         &kp X         &kp C          &kp V                &kp B        &kp C_MUTE  &kp K_APP  &kp N        &kp M                &kp COMMA      &kp DOT       &kp FSLH          &mt RSHFT INT1
+&kp LCTRL   &kp LEFT_ALT  &kp LWIN      &lt 5 F13      &lt 3 BACKSPACE      &lt 2 SPACE                         &lt 2 SPACE  &lt 3 ENTER          &lt 6 F14      &kp RMETA     &kp RIGHT_ALT     &kp RCTRL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -236,7 +352,7 @@
             bindings = <
 &lt 4 TAB   &kp Q         &kp W     &kp E      &kp R            &kp T                        &kp Y        &kp U        &kp I      &kp O      &kp P          &lt 4 LEFT_BRACKET
 &kp LCTRL   &kp A         &kp S     &kp D      &kp F            &kp G                        &kp H        &kp J        &kp K      &kp L      &kp SEMICOLON  &mt RCTRL SQT
-&kp LSHIFT  &kp Z         &kp X     &kp C      &kp V            &kp B        &trans  &trans  &kp N        &kp M        &kp COMMA  &kp DOT    &kp FSLH       &kp INTERNATIONAL_1
+&kp LSHIFT  &kp Z         &kp X     &kp C      &kp V            &kp B        &trans  &trans  &kp N        &kp M        &kp COMMA  &kp DOT    &kp FSLH       &kp INT1
 &kp LCTRL   &kp LEFT_ALT  &kp LWIN  &lt 5 F13  &lt 3 BACKSPACE  &lt 2 SPACE                  &lt 2 SPACE  &lt 3 ENTER  &lt 6 F14  &kp RMETA  &kp RIGHT_ALT  &kp RCTRL
             >;
 
@@ -257,10 +373,10 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&kp LS(INT_YEN)  &kp LS(N2)       &kp HOME  &kp UP_ARROW  &kp END      &kp PAGE_UP                    &kp RIGHT_BRACKET        &kp LS(N8)  &kp LS(N9)             &kp BACKSLASH        &kp MINUS            &kp LS(MINUS)
-&trans           &kp GRAVE        &kp LEFT  &kp DOWN      &kp RIGHT    &kp PAGE_DOWN                  &kp BACKSPACE            &kp ESCAPE  &kp DELETE             &kp INTERNATIONAL_4  &kp INTERNATIONAL_5  &mt RCTRL LS(N7)
-&trans           &kp EXCLAMATION  &kp HASH  &kp DOLLAR    &kp PERCENT  &kp LS(EQUAL)  &trans  &trans  &kp LS(INTERNATIONAL_1)  &kp ENTER   &kp RS(RIGHT_BRACKET)  &kp RS(BACKSLASH)    &kp LS(N6)           &mt RSHFT EQUAL
-&trans           &trans           &trans    &trans        &trans       &trans                         &trans                   &trans      &trans                 &trans               &trans               &trans
+&kp LS(INT_YEN)  &kp LS(N2)       &kp HOME  &kp UP_ARROW  &kp END      &kp PAGE_UP                    &kp RIGHT_BRACKET  &kp LS(N8)  &kp LS(N9)             &kp BACKSLASH     &kp MINUS   &kp LS(MINUS)
+&trans           &kp GRAVE        &kp LEFT  &kp DOWN      &kp RIGHT    &kp PAGE_DOWN                  &kp BACKSPACE      &kp ESCAPE  &kp DELETE             &kp INT4          &kp INT5    &mt RCTRL LS(N7)
+&trans           &kp EXCLAMATION  &kp HASH  &kp DOLLAR    &kp PERCENT  &kp LS(EQUAL)  &trans  &trans  &kp LS(INT1)       &kp ENTER   &kp RS(RIGHT_BRACKET)  &kp RS(BACKSLASH) &kp LS(N6)  &mt RSHFT EQUAL
+&trans           &trans           &trans    &trans        &trans       &trans                         &trans             &trans      &trans                 &trans            &trans      &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -297,10 +413,10 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&none  &none  &none  &none  &none  &sys_reset                   &sys_reset   &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &bootloader                  &bootloader  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none        &trans  &trans  &none        &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none                        &none        &none  &none  &none  &none  &none
+&none  &none  &none  &none           &none          &sys_reset                   &sys_reset   &none  &none  &none  &none  &none
+&none  &none  &none  &none           &none          &bootloader                  &bootloader  &none  &none  &none  &none  &none
+&none  &none  &none  &none           &none          &none        &trans  &trans  &none        &none  &none  &none  &none  &none
+&none  &none  &none  &kp PAUSE_BREAK &kp SCROLLLOCK &kp INS                      &none        &none  &none  &none  &none  &none
             >;
         };
 
