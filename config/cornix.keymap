@@ -177,7 +177,7 @@
         };
 
         cb_qw {
-            bindings = <&kp K_MENU>;
+            bindings = <&kp K_APP>;
             key-positions = <1 2>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
@@ -256,7 +256,7 @@
 
         /* Right Top Row */
         cb_yu {
-            bindings = <&msc MB1>;
+            bindings = <&mkp MB1>;
             key-positions = <6 7>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
@@ -277,14 +277,14 @@
         };
 
         cb_op {
-            bindings = <&msc MB2>;
+            bindings = <&mkp MB2>;
             key-positions = <9 10>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
         };
 
         cb_pat {
-            bindings = <&msc MB3>;
+            bindings = <&mkp MB3>;
             key-positions = <10 11>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
