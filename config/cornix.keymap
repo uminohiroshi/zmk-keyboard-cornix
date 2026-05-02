@@ -42,6 +42,21 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
+
+/* キーマウス加速 */
+&mmv {
+    time-to-max-speed-ms = <1000>;  // 最高速に達するまでの時間(ms)
+    acceleration-exponent = <1>;    // 加速カーブの形状(1:線形, 2:二次加速)
+    delay-ms = <0>;                 // 動き始めるまでの遅延(ms)
+};
+
+/* キーホイール加速 */
+&msc {
+    time-to-max-speed-ms = <1000>;  // 最高速に達するまでの時間(ms)
+    acceleration-exponent = <1>;    // 加速カーブの形状(1:線形, 2:二次加速)
+    delay-ms = <0>;                 // 動き始めるまでの遅延(ms)
+};
+
 / {
     // Activate ADJUST layer by pressing raise and lower
 
@@ -307,20 +322,6 @@
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
         };
-    };
-
-    /* キーマウス加速 */
-    &mmv {
-        time-to-max-speed-ms = <1000>;  // 最高速に達するまでの時間(ms)
-        acceleration-exponent = <1>;    // 加速カーブの形状(1:線形, 2:二次加速)
-        delay-ms = <0>;                 // 動き始めるまでの遅延(ms)
-    };
-
-    /* キーホイール加速 */
-    &msc {
-        time-to-max-speed-ms = <1000>;  // 最高速に達するまでの時間(ms)
-        acceleration-exponent = <1>;    // 加速カーブの形状(1:線形, 2:二次加速)
-        delay-ms = <0>;                 // 動き始めるまでの遅延(ms)
     };
 
     keymap {
