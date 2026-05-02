@@ -45,14 +45,14 @@
 
 /* キーマウス加速 */
 &mmv {
-    time-to-max-speed-ms = <1000>;  // 最高速に達するまでの時間(ms)
+    time-to-max-speed-ms = <300>;  // 最高速に達するまでの時間(ms)
     acceleration-exponent = <1>;    // 加速カーブの形状(1:線形, 2:二次加速)
     delay-ms = <0>;                 // 動き始めるまでの遅延(ms)
 };
 
 /* キーホイール加速 */
 &msc {
-    time-to-max-speed-ms = <1000>;  // 最高速に達するまでの時間(ms)
+    time-to-max-speed-ms = <300>;  // 最高速に達するまでの時間(ms)
     acceleration-exponent = <1>;    // 加速カーブの形状(1:線形, 2:二次加速)
     delay-ms = <0>;                 // 動き始めるまでの遅延(ms)
 };
@@ -174,7 +174,7 @@
         };
 
         cb_qw {
-            bindings = <&kp ESCAPE>;
+            bindings = <&kp K_MENU>;
             key-positions = <1 2>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
@@ -253,35 +253,35 @@
 
         /* Right Top Row */
         cb_yu {
-            bindings = <&kp K_CONTEXT_MENU>;
+            bindings = <&msc MB1>;
             key-positions = <6 7>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
         };
 
         cb_ui {
-            bindings = <&kp ESCAPE>;
+            bindings = <&msc SCRL_UP>;
             key-positions = <7 8>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
         };
 
         cb_io {
-            bindings = <&kp ESCAPE>;
+            bindings = <&msc SCRL_DOWN>;
             key-positions = <8 9>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
         };
 
         cb_op {
-            bindings = <&kp ESCAPE>;
+            bindings = <&msc MB2>;
             key-positions = <9 10>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
         };
 
         cb_pat {
-            bindings = <&kp ESCAPE>;
+            bindings = <&msc MB3>;
             key-positions = <10 11>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
