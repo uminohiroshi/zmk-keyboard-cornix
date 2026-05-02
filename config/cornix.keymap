@@ -344,7 +344,7 @@
 &kp LCTRL   &kp LEFT_ALT  &kp LWIN      &lt 5 F13      &lt 3 BACKSPACE      &lt 2 SPACE                         &lt 2 SPACE  &lt 3 ENTER          &lt 6 F14      &kp RMETA     &kp RIGHT_ALT     &kp RCTRL
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_SCROLL_UP  C_AC_SCROLL_DOWN>;
         };
 
         default2_layer {
@@ -356,9 +356,7 @@
 &kp LCTRL   &kp LEFT_ALT  &kp LWIN  &lt 5 F13  &lt 3 BACKSPACE  &lt 2 SPACE                  &lt 2 SPACE  &lt 3 ENTER  &lt 6 F14  &kp RMETA  &kp RIGHT_ALT  &kp RCTRL
             >;
 
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_SCROLL_UP  C_AC_SCROLL_DOWN>;
         };
 
         lower_layer {
@@ -379,7 +377,7 @@
 &trans           &trans           &trans    &trans        &trans       &trans                         &trans             &trans      &trans                 &trans            &trans      &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_SCROLL_UP  C_AC_SCROLL_DOWN>;
         };
 
         Raise_layer {
@@ -393,13 +391,13 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&kp F12     &kp F1   &kp F2           &kp F3   &kp F4   &kp F5                           &kp F6               &kp F7   &kp F8   &kp F9          &kp F10  &kp F11
-&kp LCTRL   &kp N1   &kp N2           &kp N3   &kp N4   &kp N5                           &kp N6               &kp N7   &kp N8   &kp N9          &kp N0   &kp RCTRL
-&kp LSHIFT  &kp INS  &kp PAUSE_BREAK  &kp F14  &kp F13  &kp PRINTSCREEN  &trans  &trans  &kp LA(PRINTSCREEN)  &kp F13  &kp F14  &kp SCROLLLOCK  &none    &kp RSHIFT
-&trans      &trans   &trans           &trans   &trans   &trans                           &trans               &trans   &trans   &trans          &trans   &trans
+&kp F12     &kp F1   &kp F2   &kp F3   &kp F4     &kp F5                           &kp F6               &kp F7   &kp F8   &kp F9   &kp F10  &kp F11
+&kp LCTRL   &kp N1   &kp N2   &kp N3   &kp N4     &kp N5                           &kp N6               &kp N7   &kp N8   &kp N9   &kp N0   &kp RCTRL
+&kp LSHIFT  &trans   &none    &none    &kp K_APP  &kp PRINTSCREEN  &trans  &trans  &kp LA(PRINTSCREEN)  &none    &none    &none    &none    &kp RSHIFT
+&trans      &trans   &trans   &trans   &trans     &trans                           &trans               &trans   &trans   &trans   &trans   &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_SCROLL_UP  C_AC_SCROLL_DOWN>;
         };
 
         Adjust_layer {
@@ -415,8 +413,8 @@
             bindings = <
 &none  &none  &none  &none           &none          &sys_reset                   &sys_reset   &none  &none  &none  &none  &none
 &none  &none  &none  &none           &none          &bootloader                  &bootloader  &none  &none  &none  &none  &none
-&none  &none  &none  &none           &none          &none        &trans  &trans  &none        &none  &none  &none  &none  &none
-&none  &none  &none  &kp PAUSE_BREAK &kp SCROLLLOCK &kp INS                      &none        &none  &none  &none  &none  &none
+&none  &none  &none  &kp PAUSE_BREAK &kp SCROLLLOCK &kp INS      &trans  &trans  &none        &none  &none  &none  &none  &none
+&none  &none  &none  &none           &none          &none                        &none        &none  &none  &none  &none  &none
             >;
         };
 
