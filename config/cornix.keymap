@@ -34,7 +34,6 @@
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB5  // right hand
 #define THUMBS LH1 LH0 RH0 RH1
 #define KEYS_T LH1 LH0 RH0 RH1
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 15
 #define COMBO_TIMEOUT 25       // combo入力時間
 #define COMBO_PRIOR_IDLE 80    // combo入力前に一旦待つ
 
