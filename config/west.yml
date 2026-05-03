@@ -11,13 +11,13 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: cb615aee9a7c427e251f2ab62080c1a44a165da9
       clone-depth: 1
       import:
         file: app/west.yml
     - name: zmk-helpers
       remote: urob
-      revision: main
+      revision: 65fec2b3cd144f3c383a1810c36a42dae57255c5
       clone-depth: 1
     #- name: zmk-rgbled-widget
     #  remote: hitsmaxft
@@ -25,7 +25,7 @@ manifest:
     #  clone-depth: 1
     - name: zmk-dongle-display
       remote: hitsmaxft
-      revision: zephyr4
+      revision: 8e8d618aefbeb6dcaeb0f539b35b9530d783fbfa
       clone-depth: 1
     #- name: zmk-dongle-screen
     #  remote: janpfischer
