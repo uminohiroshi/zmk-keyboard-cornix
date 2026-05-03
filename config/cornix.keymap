@@ -8,21 +8,21 @@
 #include "includes/cornix54.h"
 
 // Home Row mod定数
-#define HM_TAPPING_TERM 200         // 通常判定
-#define HM_QUICK_TAP_TERM 200       // 通常判定
-#define HM_PRIOR_IDLE 150
-#define HM_TAPPING_TERM_FAST 150    // 高速判定
-#define HM_QUICK_TAP_TERM_FAST 150  // 高速判定
+#define HM_TAPPING_TERM         200     // 通常判定
+#define HM_QUICK_TAP_TERM       200     // 通常判定
+#define HM_PRIOR_IDLE           150
+#define HM_TAPPING_TERM_FAST    150     // 高速判定
+#define HM_QUICK_TAP_TERM_FAST  150     // 高速判定
 
-#define LT_THUMB_TAPPING_TERM 300   // 親指 layer tap
-#define LT_LITTLE_TAPPING_TERM 300  // 小指 layer tap
-#define MT_LITTLE_TAPPING_TERM 300  // 小指 mod tap
+#define LT_THUMB_TAPPING_TERM   300     // 親指 layer tap
+#define LT_LITTLE_TAPPING_TERM  300     // 小指 layer tap
+#define MT_LITTLE_TAPPING_TERM  300     // 小指 mod tap
 
 #define HM_TAPPING_REPEAT 210
 
 // layers
 #define L_BASE      0
-#define L_BASE2     1 // BASE without HRM
+#define L_BASE2     1   // BASE without HRM
 #define L_LOWER     2
 #define L_RAISE     3
 #define L_ADJUST    4
@@ -48,12 +48,12 @@
 /*- 個人設定 ---------------------------------------------------------------*/
 
 /* combo */
-#define COMBO_TIMEOUT 25       // combo入力時間
-#define COMBO_PRIOR_IDLE 80    // combo入力前に一旦待つ
+#define COMBO_TIMEOUT       25      // combo入力時間
+#define COMBO_PRIOR_IDLE    80      // combo入力前に一旦待つ
 
 /* キーボードでのマウス操作 */
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 2400  // default: 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 100    // default: 10
+#define ZMK_POINTING_DEFAULT_MOVE_VAL   2400    // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL   100     // default: 10
 
 
 /*- キーマウス加速 ----------------------------------------------------------*/
@@ -456,10 +456,10 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&none  &none  &none  &none           &none          &sys_reset                   &sys_reset   &none  &none  &none  &none  &none
-&none  &none  &none  &none           &none          &bootloader                  &bootloader  &none  &none  &none  &none  &none
-&none  &none  &none  &kp PAUSE_BREAK &kp SCROLLLOCK &kp INS      &trans  &trans  &none        &none  &none  &none  &none  &none
-&none  &none  &none  &none           &none          &none                        &none        &none  &none  &none  &none  &none
+&none  &to L_BASE &to L_BASE2 &none           &none          &sys_reset                   &sys_reset   &none  &none  &none  &none  &none
+&none  &none      &none       &none           &none          &bootloader                  &bootloader  &none  &none  &none  &none  &none
+&none  &none      &none       &kp PAUSE_BREAK &kp SCROLLLOCK &kp INS      &trans  &trans  &none        &none  &none  &none  &none  &none
+&none  &none      &none       &none           &none          &none                        &none        &none  &none  &none  &none  &none
             >;
         };
 
@@ -476,10 +476,10 @@
         Navi_layer {
             display-name = "Navi";
             bindings = <
-&mo 7  &msc SCRL_UP    &mkp LCLK        &mmv MOVE_UP    &mkp MCLK        &mkp RCLK                  &msc SCRL_UP    &mkp LCLK        &mmv MOVE_UP    &mkp MCLK        &mkp RCLK  &none
-&none  &msc SCRL_DOWN  &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none                      &msc SCRL_DOWN  &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none      &none
-&none  &msc SCRL_LEFT  &msc SCRL_RIGHT  &none           &none            &none      &trans  &trans  &msc SCRL_LEFT  &msc SCRL_RIGHT  &none           &none            &none      &none
-&none  &none           &none            &none           &none            &mo 7                      &none           &none            &none           &none            &none      &none
+&mo L_DEBUG &msc SCRL_UP    &mkp LCLK        &mmv MOVE_UP    &mkp MCLK        &mkp RCLK                    &msc SCRL_UP    &mkp MB1        &mmv MOVE_UP    &mkp MB2        &mkp MB3 &none
+&none       &msc SCRL_DOWN  &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none                        &msc SCRL_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT &none    &none
+&none       &msc SCRL_LEFT  &msc SCRL_RIGHT  &none           &none            &none        &trans  &trans  &msc SCRL_LEFT  &msc SCRL_RIGHT &none           &none           &none    &none
+&none       &none           &none            &none           &none            &mo L_DEBUG                  &none           &none           &none           &none           &none    &none
             >;
         };
 
