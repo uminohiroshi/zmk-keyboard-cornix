@@ -59,14 +59,14 @@
 /*- キーマウス加速 ----------------------------------------------------------*/
 &mmv {
     time-to-max-speed-ms = <600>;  // 最高速に達するまでの時間(ms)
-    acceleration-exponent = <2>;    // 加速カーブの形状(1:線形, 2:二次加速)
+    acceleration-exponent = <1>;    // 加速カーブの形状(1:線形, 2:二次加速)
     delay-ms = <0>;                 // 動き始めるまでの遅延(ms)
 };
 
 /* キーホイール加速 */
 &msc {
     time-to-max-speed-ms = <500>;  // 最高速に達するまでの時間(ms)
-    acceleration-exponent = <2>;    // 加速カーブの形状(1:線形, 2:二次加速)
+    acceleration-exponent = <1>;    // 加速カーブの形状(1:線形, 2:二次加速)
     delay-ms = <0>;                 // 動き始めるまでの遅延(ms)
 };
 
@@ -196,6 +196,39 @@
             tapping-term-ms = <HM_TAPPING_TERM>;
             quick-tap-ms = <200>;
         };
+
+		/* wheel scroll定義(nob操作用) */
+        msc2: mouse_scroll_enc {
+            compatible = "zmk,behavior-input-two-axis";
+            #binding-cells = <1>;
+            x-input-code = <INPUT_REL_HWHEEL>;
+            y-input-code = <INPUT_REL_WHEEL>;
+            time-to-max-speed-ms = <300>;
+            acceleration-exponent = <0>;
+        };
+        msc3: mouse_scroll_enc2 {
+            compatible = "zmk,behavior-input-two-axis";
+            #binding-cells = <1>;
+            x-input-code = <INPUT_REL_HWHEEL>;
+            y-input-code = <INPUT_REL_WHEEL>;
+            time-to-max-speed-ms = <300>;
+            acceleration-exponent = <0>;
+        };
+
+        msc_nob_ud: msc_nob_ud {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc2 SCRL_UP>, <&msc2 SCRL_DOWN>;
+            tap-ms = <20>;
+        };
+
+        msc_nob_lr: msc_nob_lr {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc3 SCRL_LEFT>, <&msc3 SCRL_RIGHT>;
+            tap-ms = <20>;
+        };
+
     };
 
     conditional_layers {
@@ -205,6 +238,16 @@
             if-layers = <L_LOWER L_RAISE>;
             then-layer = <L_ADJUST>;   // こうすると、ADJUSTlayerには MO()やLT()で入れなくなる。
         };
+    };
+
+    msc2_input_listener: msc2_input_listener {
+        compatible = "zmk,input-listener";
+        device = <&msc2>;
+    };
+    
+    msc3_input_listener: msc3_input_listener {
+        compatible = "zmk,input-listener";
+        device = <&msc3>;
     };
 
     combos {
@@ -389,7 +432,7 @@
 &kp LCTRL   &kp LEFT_ALT  &kp LWIN      &lt_thumb L_CTRL F13 &lt_thumb L_RAISE BACKSPACE &lt_thumb L_LOWER SPACE                       &lt_thumb L_LOWER SPACE &lt_thumb L_RAISE ENTER &lt_thumb L_NAVI F14 &kp RMETA     &kp RIGHT_ALT     &kp RCTRL
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_SCROLL_UP  C_AC_SCROLL_DOWN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &msc_nob_ud>;
         };
 
         default2_layer {
@@ -401,7 +444,7 @@
 &kp LCTRL   &kp LEFT_ALT  &kp LWIN  &lt_thumb L_CTRL F13 &lt_thumb L_RAISE BACKSPACE &lt_thumb L_LOWER SPACE                 &lt_thumb L_LOWER SPACE &lt_thumb L_RAISE ENTER &lt_thumb L_NAVI F14 &kp RMETA  &kp RIGHT_ALT  &kp RCTRL
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_SCROLL_UP  C_AC_SCROLL_DOWN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &msc_nob_ud>;
         };
 
         lower_layer {
@@ -422,7 +465,7 @@
 &trans           &trans           &trans    &trans        &trans       &trans                         &trans             &trans      &trans                 &trans            &trans      &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_SCROLL_UP  C_AC_SCROLL_DOWN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &msc_nob_ud>;
         };
 
         Raise_layer {
@@ -442,7 +485,7 @@
 &trans      &trans   &trans   &trans   &trans     &trans                           &trans               &trans   &trans   &trans   &trans   &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_SCROLL_UP  C_AC_SCROLL_DOWN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &msc_nob_lr>;
         };
 
         Adjust_layer {
