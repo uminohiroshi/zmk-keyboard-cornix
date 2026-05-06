@@ -26,10 +26,9 @@
 #define L_LOWER     2
 #define L_RAISE     3
 #define L_ADJUST    4
-#define L_CTRL      5
-#define L_NAVI      6
+#define L_NAVI      5
+#define L_NAVI2     6
 #define L_DEBUG     7
-#define L_TEST      8
 
 // https://github.com/urob/zmk-config/tree/main#timeless-homerow-mods
 
@@ -45,6 +44,8 @@
 
 #include "keycode_japanese.h"
 
+// modifier組み合わせ
+
 /*- 個人設定 ---------------------------------------------------------------*/
 
 /* combo */
@@ -53,7 +54,7 @@
 
 /* キーボードでのマウス操作 */
 #define ZMK_POINTING_DEFAULT_MOVE_VAL   2400    // default: 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL   100     // default: 10
+#define ZMK_POINTING_DEFAULT_SCRL_VAL   80     // default: 10
 
 
 /*- キーマウス加速 ----------------------------------------------------------*/
@@ -65,7 +66,7 @@
 
 /* キーホイール加速 */
 &msc {
-    time-to-max-speed-ms = <500>;  // 最高速に達するまでの時間(ms)
+    time-to-max-speed-ms = <600>;  // 最高速に達するまでの時間(ms)
     acceleration-exponent = <1>;    // 加速カーブの形状(1:線形, 2:二次加速)
     delay-ms = <0>;                 // 動き始めるまでの遅延(ms)
 };
@@ -270,10 +271,9 @@
 
         cb_we {
             bindings = <&kp ESC>;
-            key-positions = <3 2>;
+            key-positions = <2 3>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
-
             //layers = <0>;
         };
 
@@ -282,7 +282,6 @@
             key-positions = <3 4>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
-
             //layers = <0>;
         };
 
@@ -291,7 +290,6 @@
             key-positions = <4 5>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
-
             //layers = <0>;
         };
 
@@ -308,7 +306,6 @@
             key-positions = <3 2>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
-
             //layers = <0>;
         };
 
@@ -317,7 +314,6 @@
             key-positions = <3 4>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
-
             //layers = <0>;
         };
 
@@ -326,7 +322,6 @@
             key-positions = <4 5>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
-
             //layers = <0>;
         };
 
@@ -335,7 +330,6 @@
             key-positions = <4 5>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
-
             //layers = <0>;
         };
 
@@ -426,10 +420,10 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp TAB     &kp Q         &kp W         &kp E                &kp R                       &kp T                                         &kp Y                   &kp U                   &kp I                &kp O         &kp P             &kp LEFT_BRACKET
-&kp LCTRL   &hm_l LWIN A  &hm_l LALT S  &hm_l LCTRL D        &hm_shift_l LSHFT F         &kp G                                         &kp H                   &hm_shift_r RSHFT J     &hm_r RCTRL K        &hm_r RALT L  &hm_r RMETA SEMI  &mt_little RCTRL SQT
-&kp LSHIFT  &kp Z         &kp X         &kp C                &kp V                       &kp B                   &kp C_MUTE  &kp K_APP &kp N                   &kp M                   &kp COMMA            &kp DOT       &kp FSLH          &mt_little RSHFT INT1
-&kp LCTRL   &kp LEFT_ALT  &kp LWIN      &lt_thumb L_CTRL F13 &lt_thumb L_RAISE BACKSPACE &lt_thumb L_LOWER SPACE                       &lt_thumb L_LOWER SPACE &lt_thumb L_RAISE ENTER &lt_thumb L_NAVI F14 &kp RMETA     &kp RIGHT_ALT     &kp RCTRL
+&kp TAB     &kp Q         &kp W         &kp E                &kp R                       &kp T                                         &kp Y                   &kp U                   &kp I                 &kp O         &kp P             &kp LEFT_BRACKET
+&kp LCTRL   &hm_l LWIN A  &hm_l LALT S  &hm_l LCTRL D        &hm_shift_l LSHFT F         &hm_l LS(LCTRL) G                             &hm_r RS(RCTRL) H       &hm_shift_r RSHFT J     &hm_r RCTRL K         &hm_r RALT L  &hm_r RMETA SEMI  &mt_little RCTRL SQT
+&kp LSHIFT  &kp Z         &kp X         &kp C                &kp V                       &kp B                   &kp C_MUTE  &kp K_APP &kp N                   &kp M                   &kp COMMA             &kp DOT       &kp FSLH          &mt_little RSHFT INT1
+&kp LCTRL   &kp LEFT_ALT  &kp LWIN      &lt_thumb L_NAVI F13 &lt_thumb L_RAISE BACKSPACE &lt_thumb L_LOWER SPACE                       &lt_thumb L_LOWER SPACE &lt_thumb L_RAISE ENTER &lt_thumb L_NAVI2 F14 &kp RMETA     &kp RIGHT_ALT     &kp RCTRL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &msc_nob_ud>;
@@ -438,10 +432,10 @@
         default2_layer {
             display-name = "Base_woHRM";
             bindings = <
-&kp TAB     &kp Q         &kp W     &kp E                &kp R                       &kp T                                   &kp Y                   &kp U                   &kp I                &kp O      &kp P          &kp LEFT_BRACKET
-&kp LCTRL   &kp A         &kp S     &kp D                &kp F                       &kp G                                   &kp H                   &kp J                   &kp K                &kp L      &kp SEMICOLON  &mt_little RCTRL SQT
-&kp LSHIFT  &kp Z         &kp X     &kp C                &kp V                       &kp B                   &trans  &trans  &kp N                   &kp M                   &kp COMMA            &kp DOT    &kp FSLH       &mt_little RSHFT INT1
-&kp LCTRL   &kp LEFT_ALT  &kp LWIN  &lt_thumb L_CTRL F13 &lt_thumb L_RAISE BACKSPACE &lt_thumb L_LOWER SPACE                 &lt_thumb L_LOWER SPACE &lt_thumb L_RAISE ENTER &lt_thumb L_NAVI F14 &kp RMETA  &kp RIGHT_ALT  &kp RCTRL
+&kp TAB     &kp Q         &kp W     &kp E                &kp R                       &kp T                                   &kp Y                   &kp U                   &kp I                 &kp O      &kp P          &kp LEFT_BRACKET
+&kp LCTRL   &kp A         &kp S     &kp D                &kp F                       &kp G                                   &kp H                   &kp J                   &kp K                 &kp L      &kp SEMICOLON  &mt_little RCTRL SQT
+&kp LSHIFT  &kp Z         &kp X     &kp C                &kp V                       &kp B                   &trans  &trans  &kp N                   &kp M                   &kp COMMA             &kp DOT    &kp FSLH       &mt_little RSHFT INT1
+&kp LCTRL   &kp LEFT_ALT  &kp LWIN  &lt_thumb L_NAVI F13 &lt_thumb L_RAISE BACKSPACE &lt_thumb L_LOWER SPACE                 &lt_thumb L_LOWER SPACE &lt_thumb L_RAISE ENTER &lt_thumb L_NAVI2 F14 &kp RMETA  &kp RIGHT_ALT  &kp RCTRL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &msc_nob_ud>;
@@ -506,28 +500,18 @@
             >;
         };
 
-        Ctrl_layer {
-            display-name = "Ctrl";
-            bindings = <
-&bt BT_CLR    &none  &none  &kp K_PREV  &kp K_NEXT  &sys_reset                &sys_reset   &none  &none  &none  &none  &none
-&bt BT_SEL 2  &none  &none  &none       &none       &bootloader               &bootloader  &none  &none  &none  &none  &none
-&bt BT_SEL 1  &none  &none  &none       &none       &none       &none  &none  &none        &none  &none  &none  &none  &none
-&bt BT_SEL 0  &none  &none  &none       &none       &none                     &none        &none  &none  &none  &none  &none
-            >;
-        };
-
         Navi_layer {
             display-name = "Navi";
             bindings = <
-&mo L_DEBUG &msc SCRL_UP    &mkp LCLK        &mmv MOVE_UP    &mkp MCLK        &mkp RCLK                    &msc SCRL_UP    &mkp MB1        &mmv MOVE_UP    &mkp MB2        &mkp MB3 &none
-&none       &msc SCRL_DOWN  &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none                        &msc SCRL_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT &none    &none
-&none       &msc SCRL_LEFT  &msc SCRL_RIGHT  &none           &none            &none        &trans  &trans  &msc SCRL_LEFT  &msc SCRL_RIGHT &none           &none           &none    &none
-&none       &none           &none            &none           &none            &mo L_DEBUG                  &none           &none           &none           &none           &none    &none
+&bt BT_CLR   &mkp MB3  &mkp MB2        &mmv MOVE_UP    &mkp MB1         &msc SCRL_UP                     &msc SCRL_UP    &mkp MB1        &mmv MOVE_UP    &mkp MB2        &mkp MB3 &none
+&bt BT_SEL 2 &none     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN                   &msc SCRL_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT &none    &none
+&bt BT_SEL 1 &none     &none           &none           &msc SCRL_RIGHT  &msc SCRL_RIGHT  &trans  &trans  &msc SCRL_LEFT  &msc SCRL_RIGHT &none           &none           &none    &none
+&bt BT_SEL 0 &none     &none           &none           &none            &mo L_DEBUG                      &none           &none           &none           &none           &none    &none
             >;
         };
 
-        Debug_layer {
-            display-name = "Debug";
+        Navi2_layer {
+            display-name = "Navi2";
 
             // ----------------------------------------------------------------------------------------------------------------------------
             // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
@@ -537,20 +521,20 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR      &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4                   &none        &none  &none   &none  &none  &none
-&bt BT_CLR_ALL  &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4                  &none        &none  &none   &none  &none  &none
-&bt BT_NXT      &bt BT_PRV     &none          &none          &none          &bootloader    &trans  &trans  &bootloader  &none  &none   &none  &none  &none
-&none           &none          &none          &none          &none          &none                          &none        &none  &kp N7  &none  &none  &none
+&bt BT_CLR   &mkp MB3  &mkp MB2        &mmv MOVE_UP    &mkp MB1         &msc SCRL_UP                     &msc SCRL_UP    &mkp MB1        &mmv MOVE_UP    &mkp MB2        &mkp MB3 &none
+&bt BT_SEL 2 &none     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN                   &msc SCRL_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT &none    &none
+&bt BT_SEL 1 &none     &none           &none           &msc SCRL_RIGHT  &msc SCRL_RIGHT  &trans  &trans  &msc SCRL_LEFT  &msc SCRL_RIGHT &none           &none           &none    &none
+&bt BT_SEL 0 &none     &none           &none           &none            &mo L_DEBUG                      &none           &none           &none           &none           &none    &none
             >;
         };
 
-        Test_layer {
-            display-name = "Test";
+        Debug_layer {
+            display-name = "Debug";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5                  &trans  &trans  &trans  &trans  &trans  &trans
+&bt BT_DISC 0   &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3 &bt BT_DISC 4 &bt BT_DISC 5                 &trans  &trans  &trans  &trans  &trans  &trans
+&bt BT_CLR_ALL  &trans        &trans       &trans        &trans        &trans        &trans  &trans   &trans  &trans  &trans  &trans  &trans  &trans
+&trans          &trans        &trans       &trans        &trans        &trans                         &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
