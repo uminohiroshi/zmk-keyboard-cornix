@@ -8,19 +8,19 @@
 #include "includes/cornix54.h"
 
 // Home Row mod定数
+
 #define HM_TAPPING_TERM         200     // 通常判定
 #define HM_QUICK_TAP_TERM       200     // 通常判定
 #define HM_PRIOR_IDLE           150
 #define HM_TAPPING_TERM_FAST    150     // 高速判定
 #define HM_QUICK_TAP_TERM_FAST  150     // 高速判定
-
 #define LT_THUMB_TAPPING_TERM   300     // 親指 layer tap
 #define LT_LITTLE_TAPPING_TERM  300     // 小指 layer tap
 #define MT_LITTLE_TAPPING_TERM  300     // 小指 mod tap
-
 #define HM_TAPPING_REPEAT 210
 
 // layers
+
 #define L_BASE      0
 #define L_BASE2     1   // BASE without HRM
 #define L_LOWER     2
@@ -41,23 +41,22 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
-
 #include "keycode_japanese.h"
 
 // modifier組み合わせ
-
 /*- 個人設定 ---------------------------------------------------------------*/
-
 /* combo */
+
 #define COMBO_TIMEOUT       25      // combo入力時間
 #define COMBO_PRIOR_IDLE    80      // combo入力前に一旦待つ
 
 /* キーボードでのマウス操作 */
+
 #define ZMK_POINTING_DEFAULT_MOVE_VAL   2400    // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL   80     // default: 10
 
-
 /*- キーマウス加速 ----------------------------------------------------------*/
+
 &mmv {
     time-to-max-speed-ms = <600>;  // 最高速に達するまでの時間(ms)
     acceleration-exponent = <1>;    // 加速カーブの形状(1:線形, 2:二次加速)
@@ -65,6 +64,7 @@
 };
 
 /* キーホイール加速 */
+
 &msc {
     time-to-max-speed-ms = <600>;  // 最高速に達するまでの時間(ms)
     acceleration-exponent = <1>;    // 加速カーブの形状(1:線形, 2:二次加速)
@@ -136,6 +136,7 @@
         };
 
         // 親指 layer tap
+
         lt_thumb: lt_thumb {
             compatible = "zmk,behavior-hold-tap";
             label = "LT_THUMB";
@@ -143,10 +144,11 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <300>;
-            flavor = "hold-preferred";            
+            flavor = "hold-preferred";
         };
 
         // 小指 layer tap
+
         lt_little: lt_little {
             compatible = "zmk,behavior-hold-tap";
             label = "LT_LITTLE";
@@ -154,18 +156,19 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <300>;
-            flavor = "hold-preferred";            
+            flavor = "hold-preferred";
         };
 
         // 小指 mod tap
-        mt_little: mt_little {
-                compatible = "zmk,behavior-hold-tap";
-                label = "MT_LITTLE";
-                bindings = <&kp>, <&kp>;
 
-                #binding-cells = <2>;
-                tapping-term-ms = <300>;
-                flavor = "hold-preferred";
+        mt_little: mt_little {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MT_LITTLE";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            flavor = "hold-preferred";
         };
 
         /*
@@ -198,7 +201,8 @@
             quick-tap-ms = <200>;
         };
 
-		/* wheel scroll定義(nob操作用) */
+        /* wheel scroll定義(nob操作用) */
+
         msc2: mouse_scroll_enc {
             compatible = "zmk,behavior-input-two-axis";
             #binding-cells = <1>;
@@ -207,6 +211,7 @@
             time-to-max-speed-ms = <300>;
             acceleration-exponent = <0>;
         };
+
         msc3: mouse_scroll_enc2 {
             compatible = "zmk,behavior-input-two-axis";
             #binding-cells = <1>;
@@ -220,6 +225,7 @@
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc2 SCRL_UP>, <&msc2 SCRL_DOWN>;
+
             tap-ms = <20>;
         };
 
@@ -227,9 +233,9 @@
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc3 SCRL_LEFT>, <&msc3 SCRL_RIGHT>;
+
             tap-ms = <20>;
         };
-
     };
 
     conditional_layers {
@@ -245,7 +251,7 @@
         compatible = "zmk,input-listener";
         device = <&msc2>;
     };
-    
+
     msc3_input_listener: msc3_input_listener {
         compatible = "zmk,input-listener";
         device = <&msc3>;
@@ -255,6 +261,7 @@
         compatible = "zmk,combos";
 
         /* Left Top Row */
+
         cb_tabq {
             bindings = <&none>;
             key-positions = <0 1>;
@@ -274,6 +281,7 @@
             key-positions = <2 3>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+
             //layers = <0>;
         };
 
@@ -282,6 +290,7 @@
             key-positions = <3 4>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+
             //layers = <0>;
         };
 
@@ -290,50 +299,57 @@
             key-positions = <4 5>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+
             //layers = <0>;
         };
 
         /* Left Bottom Row */
+
         cb_sftz {
             bindings = <&none>;
-            key-positions = <1 2>;
+            key-positions = <24 25>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
         };
 
         cb_zx {
             bindings = <&none>;
-            key-positions = <3 2>;
+            key-positions = <25 26>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+
             //layers = <0>;
         };
 
         cb_xc {
             bindings = <&none>;
-            key-positions = <3 4>;
+            key-positions = <26 27>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+
             //layers = <0>;
         };
 
         cb_cv {
             bindings = <&none>;
-            key-positions = <4 5>;
+            key-positions = <27 28>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+
             //layers = <0>;
         };
 
         cb_vb {
             bindings = <&none>;
-            key-positions = <4 5>;
+            key-positions = <28 29>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+
             //layers = <0>;
         };
 
         /* Right Top Row */
+
         cb_yu {
             bindings = <&mkp MB1>;
             key-positions = <6 7>;
@@ -370,37 +386,38 @@
         };
 
         /* Right Bottom Row */
+
         cb_nm {
             bindings = <&none>;
-            key-positions = <6 7>;
+            key-positions = <32 33>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
         };
 
         cb_mcomma {
             bindings = <&none>;
-            key-positions = <7 8>;
+            key-positions = <33 34>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
         };
 
         cb_commaperiod {
             bindings = <&none>;
-            key-positions = <8 9>;
+            key-positions = <34 35>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
         };
 
         cb_priodslash {
             bindings = <&none>;
-            key-positions = <9 10>;
+            key-positions = <35 36>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
         };
 
         cb_slashbackslash {
             bindings = <&none>;
-            key-positions = <10 11>;
+            key-positions = <36 37>;
             timeout-ms = <COMBO_TIMEOUT>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
         };
@@ -420,10 +437,10 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp TAB     &kp Q         &kp W         &kp E                &kp R                       &kp T                                         &kp Y                   &kp U                   &kp I                 &kp O         &kp P             &kp LEFT_BRACKET
-&kp LCTRL   &hm_l LWIN A  &hm_l LALT S  &hm_l LCTRL D        &hm_shift_l LSHFT F         &hm_l LS(LCTRL) G                             &hm_r RS(RCTRL) H       &hm_shift_r RSHFT J     &hm_r RCTRL K         &hm_r RALT L  &hm_r RMETA SEMI  &mt_little RCTRL SQT
-&kp LSHIFT  &kp Z         &kp X         &kp C                &kp V                       &kp B                   &kp C_MUTE  &kp K_APP &kp N                   &kp M                   &kp COMMA             &kp DOT       &kp FSLH          &mt_little RSHFT INT1
-&kp LCTRL   &kp LEFT_ALT  &kp LWIN      &lt_thumb L_NAVI F13 &lt_thumb L_RAISE BACKSPACE &lt_thumb L_LOWER SPACE                       &lt_thumb L_LOWER SPACE &lt_thumb L_RAISE ENTER &lt_thumb L_NAVI2 F14 &kp RMETA     &kp RIGHT_ALT     &kp RCTRL
+&kp TAB     &kp Q         &kp W         &kp E                 &kp R                        &kp T                                           &kp Y                    &kp U                    &kp I                  &kp O         &kp P             &kp LEFT_BRACKET
+&kp LCTRL   &hm_l LWIN A  &hm_l LALT S  &hm_l LCTRL D         &hm_shift_l LSHFT F          &hm_l LS(LCTRL) G                               &hm_r RS(RCTRL) H        &hm_shift_r RSHFT J      &hm_r RCTRL K          &hm_r RALT L  &hm_r RMETA SEMI  &mt_little RCTRL SQT
+&kp LSHIFT  &kp Z         &kp X         &kp C                 &kp V                        &kp B                    &kp C_MUTE  &kp K_APP  &kp N                    &kp M                    &kp COMMA              &kp DOT       &kp FSLH          &mt_little RSHFT INT1
+&kp LCTRL   &kp LEFT_ALT  &kp LWIN      &lt_thumb L_NAVI F13  &lt_thumb L_RAISE BACKSPACE  &lt_thumb L_LOWER SPACE                         &lt_thumb L_LOWER SPACE  &lt_thumb L_RAISE ENTER  &lt_thumb L_NAVI2 F14  &kp RMETA     &kp RIGHT_ALT     &kp RCTRL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &msc_nob_ud>;
@@ -432,10 +449,10 @@
         default2_layer {
             display-name = "Base_woHRM";
             bindings = <
-&kp TAB     &kp Q         &kp W     &kp E                &kp R                       &kp T                                   &kp Y                   &kp U                   &kp I                 &kp O      &kp P          &kp LEFT_BRACKET
-&kp LCTRL   &kp A         &kp S     &kp D                &kp F                       &kp G                                   &kp H                   &kp J                   &kp K                 &kp L      &kp SEMICOLON  &mt_little RCTRL SQT
-&kp LSHIFT  &kp Z         &kp X     &kp C                &kp V                       &kp B                   &trans  &trans  &kp N                   &kp M                   &kp COMMA             &kp DOT    &kp FSLH       &mt_little RSHFT INT1
-&kp LCTRL   &kp LEFT_ALT  &kp LWIN  &lt_thumb L_NAVI F13 &lt_thumb L_RAISE BACKSPACE &lt_thumb L_LOWER SPACE                 &lt_thumb L_LOWER SPACE &lt_thumb L_RAISE ENTER &lt_thumb L_NAVI2 F14 &kp RMETA  &kp RIGHT_ALT  &kp RCTRL
+&kp TAB     &kp Q         &kp W     &kp E                 &kp R                        &kp T                                    &kp Y                    &kp U                    &kp I                  &kp O      &kp P          &kp LEFT_BRACKET
+&kp LCTRL   &kp A         &kp S     &kp D                 &kp F                        &kp G                                    &kp H                    &kp J                    &kp K                  &kp L      &kp SEMICOLON  &mt_little RCTRL SQT
+&kp LSHIFT  &kp Z         &kp X     &kp C                 &kp V                        &kp B                    &trans  &trans  &kp N                    &kp M                    &kp COMMA              &kp DOT    &kp FSLH       &mt_little RSHFT INT1
+&kp LCTRL   &kp LEFT_ALT  &kp LWIN  &lt_thumb L_NAVI F13  &lt_thumb L_RAISE BACKSPACE  &lt_thumb L_LOWER SPACE                  &lt_thumb L_LOWER SPACE  &lt_thumb L_RAISE ENTER  &lt_thumb L_NAVI2 F14  &kp RMETA  &kp RIGHT_ALT  &kp RCTRL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &msc_nob_ud>;
@@ -453,10 +470,10 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&kp LS(INT_YEN)  &kp LS(N2)       &kp HOME  &kp UP_ARROW  &kp END      &kp PAGE_UP                    &kp RIGHT_BRACKET  &kp LS(N8)  &kp LS(N9)             &kp BACKSLASH     &kp MINUS   &kp LS(MINUS)
-&trans           &kp GRAVE        &kp LEFT  &kp DOWN      &kp RIGHT    &kp PAGE_DOWN                  &kp BACKSPACE      &kp ESCAPE  &kp DELETE             &kp INT4          &kp INT5    &mt RCTRL LS(N7)
-&trans           &kp EXCLAMATION  &kp HASH  &kp DOLLAR    &kp PERCENT  &kp LS(EQUAL)  &trans  &trans  &kp LS(INT1)       &kp ENTER   &kp RS(RIGHT_BRACKET)  &kp RS(BACKSLASH) &kp LS(N6)  &mt RSHFT EQUAL
-&trans           &trans           &trans    &trans        &trans       &trans                         &trans             &trans      &trans                 &trans            &trans      &trans
+&kp LS(INT_YEN)  &kp LS(N2)       &kp HOME  &kp UP_ARROW  &kp END      &kp PAGE_UP                    &kp RIGHT_BRACKET  &kp LS(N8)  &kp LS(N9)             &kp BACKSLASH      &kp MINUS   &kp LS(MINUS)
+&trans           &kp GRAVE        &kp LEFT  &kp DOWN      &kp RIGHT    &kp PAGE_DOWN                  &kp BACKSPACE      &kp ESCAPE  &kp DELETE             &kp INT4           &kp INT5    &mt RCTRL LS(N7)
+&trans           &kp EXCLAMATION  &kp HASH  &kp DOLLAR    &kp PERCENT  &kp LS(EQUAL)  &trans  &trans  &kp LS(INT1)       &kp ENTER   &kp RS(RIGHT_BRACKET)  &kp RS(BACKSLASH)  &kp LS(N6)  &mt RSHFT EQUAL
+&trans           &trans           &trans    &trans        &trans       &trans                         &trans             &trans      &trans                 &trans             &trans      &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &msc_nob_ud>;
@@ -473,10 +490,10 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&kp F12     &kp F1   &kp F2   &kp F3   &kp F4     &kp F5                           &kp F6               &kp F7   &kp F8   &kp F9   &kp F10  &kp F11
-&kp LCTRL   &kp N1   &kp N2   &kp N3   &kp N4     &kp N5                           &kp N6               &kp N7   &kp N8   &kp N9   &kp N0   &kp RCTRL
-&kp LSHIFT  &trans   &none    &none    &kp K_APP  &kp PRINTSCREEN  &trans  &trans  &kp LA(PRINTSCREEN)  &none    &none    &none    &none    &kp RSHIFT
-&trans      &trans   &trans   &trans   &trans     &trans                           &trans               &trans   &trans   &trans   &trans   &trans
+&kp F12     &kp F1  &kp F2  &kp F3  &kp F4     &kp F5                           &kp F6               &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
+&kp LCTRL   &kp N1  &kp N2  &kp N3  &kp N4     &kp N5                           &kp N6               &kp N7  &kp N8  &kp N9  &kp N0   &kp RCTRL
+&kp LSHIFT  &trans  &none   &none   &kp K_APP  &kp PRINTSCREEN  &trans  &trans  &kp LA(PRINTSCREEN)  &none   &none   &none   &none    &kp RSHIFT
+&trans      &trans  &trans  &trans  &trans     &trans                           &trans               &trans  &trans  &trans  &trans   &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &msc_nob_lr>;
@@ -493,20 +510,20 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&none  &to L_BASE &to L_BASE2 &none           &none          &sys_reset                   &sys_reset   &none  &none  &none  &none  &none
-&none  &none      &none       &none           &none          &bootloader                  &bootloader  &none  &none  &none  &none  &none
-&none  &none      &none       &kp PAUSE_BREAK &kp SCROLLLOCK &kp INS      &trans  &trans  &none        &none  &none  &none  &none  &none
-&none  &none      &none       &none           &none          &none                        &none        &none  &none  &none  &none  &none
+&none  &to L_BASE  &to L_BASE2  &none            &none           &sys_reset                   &sys_reset   &none  &none  &none  &none  &none
+&none  &none       &none        &none            &none           &bootloader                  &bootloader  &none  &none  &none  &none  &none
+&none  &none       &none        &kp PAUSE_BREAK  &kp SCROLLLOCK  &kp INS      &trans  &trans  &none        &none  &none  &none  &none  &none
+&none  &none       &none        &none            &none           &none                        &none        &none  &none  &none  &none  &none
             >;
         };
 
         Navi_layer {
             display-name = "Navi";
             bindings = <
-&bt BT_CLR   &mkp MB3  &mkp MB2        &mmv MOVE_UP    &mkp MB1         &msc SCRL_UP                     &msc SCRL_UP    &mkp MB1        &mmv MOVE_UP    &mkp MB2        &mkp MB3 &none
-&bt BT_SEL 2 &none     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN                   &msc SCRL_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT &none    &none
-&bt BT_SEL 1 &none     &none           &none           &msc SCRL_RIGHT  &msc SCRL_RIGHT  &trans  &trans  &msc SCRL_LEFT  &msc SCRL_RIGHT &none           &none           &none    &none
-&bt BT_SEL 0 &none     &none           &none           &none            &mo L_DEBUG                      &none           &none           &none           &none           &none    &none
+&bt BT_CLR    &mkp MB3  &mkp MB2        &mmv MOVE_UP    &mkp MB1         &msc SCRL_UP                     &msc SCRL_UP    &mkp MB1         &mmv MOVE_UP    &mkp MB2         &mkp MB3  &none
+&bt BT_SEL 2  &none     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN                   &msc SCRL_DOWN  &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none     &none
+&bt BT_SEL 1  &none     &none           &none           &msc SCRL_RIGHT  &msc SCRL_RIGHT  &trans  &trans  &msc SCRL_LEFT  &msc SCRL_RIGHT  &none           &none            &none     &none
+&bt BT_SEL 0  &none     &none           &none           &none            &mo L_DEBUG                      &none           &none            &none           &none            &none     &none
             >;
         };
 
@@ -521,20 +538,20 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR   &mkp MB3  &mkp MB2        &mmv MOVE_UP    &mkp MB1         &msc SCRL_UP                     &msc SCRL_UP    &mkp MB1        &mmv MOVE_UP    &mkp MB2        &mkp MB3 &none
-&bt BT_SEL 2 &none     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN                   &msc SCRL_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT &none    &none
-&bt BT_SEL 1 &none     &none           &none           &msc SCRL_RIGHT  &msc SCRL_RIGHT  &trans  &trans  &msc SCRL_LEFT  &msc SCRL_RIGHT &none           &none           &none    &none
-&bt BT_SEL 0 &none     &none           &none           &none            &mo L_DEBUG                      &none           &none           &none           &none           &none    &none
+&bt BT_CLR    &mkp MB3  &mkp MB2        &mmv MOVE_UP    &mkp MB1         &msc SCRL_UP                     &msc SCRL_UP    &mkp MB1         &mmv MOVE_UP    &mkp MB2         &mkp MB3  &none
+&bt BT_SEL 2  &none     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN                   &msc SCRL_DOWN  &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none     &none
+&bt BT_SEL 1  &none     &none           &none           &msc SCRL_RIGHT  &msc SCRL_RIGHT  &trans  &trans  &msc SCRL_LEFT  &msc SCRL_RIGHT  &none           &none            &none     &none
+&bt BT_SEL 0  &none     &none           &none           &none            &mo L_DEBUG                      &none           &none            &none           &none            &none     &none
             >;
         };
 
         Debug_layer {
             display-name = "Debug";
             bindings = <
-&bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5                  &trans  &trans  &trans  &trans  &trans  &trans
-&bt BT_DISC 0   &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3 &bt BT_DISC 4 &bt BT_DISC 5                 &trans  &trans  &trans  &trans  &trans  &trans
-&bt BT_CLR_ALL  &trans        &trans       &trans        &trans        &trans        &trans  &trans   &trans  &trans  &trans  &trans  &trans  &trans
-&trans          &trans        &trans       &trans        &trans        &trans                         &trans  &trans  &trans  &trans  &trans  &trans
+&bt BT_SEL 0    &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4   &bt BT_SEL 5                   &trans  &trans  &trans  &trans  &trans  &trans
+&bt BT_DISC 0   &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4  &bt BT_DISC 5                  &trans  &trans  &trans  &trans  &trans  &trans
+&bt BT_CLR_ALL  &trans         &trans         &trans         &trans         &trans         &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans          &trans         &trans         &trans         &trans         &trans                         &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
