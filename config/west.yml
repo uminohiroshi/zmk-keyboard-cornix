@@ -21,12 +21,12 @@ manifest:
       clone-depth: 1
     - name: zmk-rgbled-widget
       remote: hitsmaxft
-      revision: main
-      clone-depth: 1
+      revision: 87c51b321ae48cec8759c8e137836e5052cc1288 # main
+      #clone-depth: 1
     - name: zmk-dongle-display
       remote: hitsmaxft
-      revision: main
-      clone-depth: 1
+      revision: 87c51b321ae48cec8759c8e137836e5052cc1288 # main
+      #clone-depth: 1
     - name: zmk-dongle-screen
       remote: janpfischer
       revision: main
