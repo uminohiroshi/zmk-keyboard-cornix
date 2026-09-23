@@ -420,10 +420,10 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp TAB     &kp Q         &kp W         &kp E                &kp R                       &kp T                                         &kp Y                   &kp U                   &kp I                 &kp O         &kp P             &kp LEFT_BRACKET
-&kp LCTRL   &hm_l LWIN A  &hm_l LALT S  &hm_l LCTRL D        &hm_shift_l LSHFT F         &hm_l LS(LCTRL) G                             &hm_r RS(RCTRL) H       &hm_shift_r RSHFT J     &hm_r RCTRL K         &hm_r RALT L  &hm_r RMETA SEMI  &mt_little RCTRL SQT
-&kp LSHIFT  &kp Z         &kp X         &kp C                &kp V                       &kp B                   &kp C_MUTE  &kp K_APP &kp N                   &kp M                   &kp COMMA             &kp DOT       &kp FSLH          &mt_little RSHFT INT1
-&kp LCTRL   &kp LEFT_ALT  &kp LWIN      &lt_thumb L_NAVI F13 &lt_thumb L_RAISE BACKSPACE &lt_thumb L_LOWER SPACE                       &lt_thumb L_LOWER SPACE &lt_thumb L_RAISE ENTER &lt_thumb L_NAVI2 F14 &kp RMETA     &kp RIGHT_ALT     &kp RCTRL
+&kp TAB     &kp Q         &kp W         &kp E                       &kp R                    &kp T                                           &kp Y                   &kp U                   &kp I                   &kp O          &kp P             &kp LEFT_BRACKET
+&kp LCTRL   &hm_l LWIN A  &hm_l LALT S  &hm_l LCTRL D               &hm_shift_l LSHFT F      &hm_l LS(LCTRL) G                               &hm_r RS(RCTRL) H       &hm_shift_r RSHFT J     &hm_r RCTRL K           &hm_r RALT L   &hm_r RMETA SEMI  &mt_little RCTRL SQT
+&kp LSHIFT  &hm_l LWIN Z  &hm_l LALT X  &hm_l LCTRL C               &hm_shift_l LSHFT V      &hm_l LS(LCTRL) B     &kp C_MUTE    &kp K_APP   &hm_r RS(RCTRL) N       &hm_shift_r RSHFT M     &hm_r RCTRL COMMA       &hm_r RALT DOT &hm_r RMETA FSLH  &mt_little RSHFT INT1
+&kp LCTRL   &kp LEFT_ALT  &kp LWIN      &lt_thumb L_RAISE BACKSPACE &lt_thumb L_LOWER SPACE  &lt_thumb L_NAVI F13                            &lt_thumb L_NAVI2 F14   &lt_thumb L_LOWER SPACE &lt_thumb L_RAISE ENTER &kp RMETA      &kp RIGHT_ALT     &kp RCTRL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &msc_nob_ud>;
@@ -432,10 +432,10 @@
         default2_layer {
             display-name = "Base_woHRM";
             bindings = <
-&kp TAB     &kp Q         &kp W     &kp E                &kp R                       &kp T                                   &kp Y                   &kp U                   &kp I                 &kp O      &kp P          &kp LEFT_BRACKET
-&kp LCTRL   &kp A         &kp S     &kp D                &kp F                       &kp G                                   &kp H                   &kp J                   &kp K                 &kp L      &kp SEMICOLON  &mt_little RCTRL SQT
-&kp LSHIFT  &kp Z         &kp X     &kp C                &kp V                       &kp B                   &trans  &trans  &kp N                   &kp M                   &kp COMMA             &kp DOT    &kp FSLH       &mt_little RSHFT INT1
-&kp LCTRL   &kp LEFT_ALT  &kp LWIN  &lt_thumb L_NAVI F13 &lt_thumb L_RAISE BACKSPACE &lt_thumb L_LOWER SPACE                 &lt_thumb L_LOWER SPACE &lt_thumb L_RAISE ENTER &lt_thumb L_NAVI2 F14 &kp RMETA  &kp RIGHT_ALT  &kp RCTRL
+&trans      &kp Q         &kp W     &kp E        &kp R     &kp T                     &kp Y     &kp U    &kp I      &kp O      &kp P          &trans
+&trans      &kp A         &kp S     &kp D        &kp F     &kp G                     &kp H     &kp J    &kp K      &kp L      &kp SEMICOLON  &trans
+&trans      &kp Z         &kp X     &kp C        &kp V     &kp B     &trans  &trans  &kp N     &kp M    &kp COMMA  &kp DOT    &kp FSLH       &trans
+&trans      &trans        &trans    &trans       &trans    &trans                    &trans    &trans   &trans     &trans     &trans         &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &msc_nob_ud>;
@@ -474,8 +474,8 @@
 
             bindings = <
 &kp F12     &kp F1   &kp F2   &kp F3   &kp F4     &kp F5                           &kp F6               &kp F7   &kp F8   &kp F9   &kp F10  &kp F11
-&kp LCTRL   &kp N1   &kp N2   &kp N3   &kp N4     &kp N5                           &kp N6               &kp N7   &kp N8   &kp N9   &kp N0   &kp RCTRL
-&kp LSHIFT  &trans   &none    &none    &kp K_APP  &kp PRINTSCREEN  &trans  &trans  &kp LA(PRINTSCREEN)  &none    &none    &none    &none    &kp RSHIFT
+&trans      &kp N1   &kp N2   &kp N3   &kp N4     &kp N5                           &kp N6               &kp N7   &kp N8   &kp N9   &kp N0   &kp RCTRL
+&trans      &trans   &none    &none    &kp K_APP  &kp PRINTSCREEN  &trans  &trans  &kp LA(PRINTSCREEN)  &none    &none    &none    &none    &kp RSHIFT
 &trans      &trans   &trans   &trans   &trans     &trans                           &trans               &trans   &trans   &trans   &trans   &trans
             >;
 

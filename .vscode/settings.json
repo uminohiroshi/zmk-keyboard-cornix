@@ -2,5 +2,6 @@
     "files.associations": {
         "*.keymap": "dts",
         "*.overlay": "dts"
-    }
+    },
+    "cmake.sourceDirectory": "C:/home/umino/work/projects/zmk-keyboard-cornix/boards/arm/cornix"
 }
